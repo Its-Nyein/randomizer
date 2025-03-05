@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Karla", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+@keyframes popin {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.animate-pop-in {
+  animation: popin 1s ease-out;
+}
