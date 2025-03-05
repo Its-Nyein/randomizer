@@ -112,11 +112,12 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
     // Draw the static indicator
     const indicatorLength = 30; // Adjust the length of the indicator
     const indicatorWidth = 20;  // Adjust the width of the indicator
+    const indicatorMargin = 5;
 
     ctx.save();
 
     // Keep the position unchanged but refine the triangle shape
-    ctx.translate(canvas.width, canvas.height / 2); // Keeping the original position (middle-right of the wheel)
+    ctx.translate(canvas.width - indicatorMargin, canvas.height / 2); // Keeping the original position (middle-right of the wheel)
 
     // Draw the triangle indicator
     ctx.beginPath();
@@ -206,11 +207,22 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
   }, [showPopup]);
 
   const startConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    });
+    const duration = 5000;
+    const animationEnd = Date.now() + duration;
+    
+    const interval = setInterval(() => {
+      if (Date.now() > animationEnd) {
+        clearInterval(interval);
+        return;
+      }
+  
+      confetti({
+        particleCount: 50,
+        spread: 90,
+        origin: { x: Math.random(), y: Math.random() - 0.2 },
+        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffcc00'],
+      });
+    }, 300);
   };
 
   return (
@@ -237,12 +249,23 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
           {capitalize(spinDirection)}
         </button>
       </div>
+
       {showPopup && popupWinner && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-green-700 p-6 rounded-lg shadow-lg text-center z-10 animate-pop-in">
-          <h2 className="text-2xl font-bold">Congratulations!</h2>
-          <h3 className="text-xl">{capitalize(popupWinner)}</h3>
-        </div>
-      )}
+          <div className="absolute inset-0 backdrop:blur-sm flex justify-center items-center z-50">
+            <div className="bg-black/90 p-8 rounded-lg text-center relative">
+              <h2 className="text-xl font-bold text-green-500 mb-4">
+                Congratulations! <span className='text-2xl font-bold italic underline'>{capitalize(popupWinner)}</span> is the winner!
+              </h2>
+
+              <button
+                onClick={() => setPopupWinner(null)}
+                className="bg-blue-600 text-white px-6 py-3 rounded font-bold"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
     </div>
   );
 };
