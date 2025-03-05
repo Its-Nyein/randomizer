@@ -50,7 +50,7 @@ export const Participants: FC<ParticipantsProps> = ({
   return (
     <section className="p-6">
       <h2 className="text-xl font-bold mb-4">Add Participants</h2>
-      <div className="flex gap-2 mb-4">
+      <div className="flex justify-end gap-2 mb-4">
         <input
           disabled={isMaxParticipantsReached}
           type="text"

@@ -1,20 +1,7 @@
-import styled from 'styled-components';
-
 import { Participants } from './components/Participants';
 import { Wheel } from './wheel';
 import { useState } from 'react';
 import { Header } from './components/Header';
-
-const Main = styled.main`
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-`;
 
 export const MAX_PARTICIPANTS = 18;
 
@@ -44,16 +31,21 @@ function App() {
   return (
     <>
       <Header />
-      <Main>
-        <Wheel participants={names} />
-        <Participants
-          handleAddName={handleAddName}
-          handleRemoveName={handleRemoveName}
-          shuffleNames={shuffleNames}
-          sortNames={sortNames}
-          names={names}
-        />
-      </Main>
+      <main className="flex flex-col md:flex-row justify-around items-center gap-6 p-6">
+        <div className="w-full flex justify-center mb-10">
+          <Wheel participants={names} />
+        </div>
+        
+        <div className="w-full">
+          <Participants
+            handleAddName={handleAddName}
+            handleRemoveName={handleRemoveName}
+            shuffleNames={shuffleNames}
+            sortNames={sortNames}
+            names={names}
+          />
+        </div>
+      </main>
     </>
   );
 }
