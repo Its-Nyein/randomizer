@@ -1,5 +1,5 @@
 import { Participants } from './components/Participants';
-import { Wheel } from './wheel';
+import { Wheel } from './components/wheel';
 import { useState } from 'react';
 import { Header } from './components/Header';
 
@@ -33,8 +33,10 @@ function App() {
       <Header />
       <main className="flex flex-col md:flex-row justify-around items-center gap-6 p-6">
         <div className="w-full flex justify-center mb-10">
-          <Wheel participants={names} />
-        </div>
+          {/* <div className="w-[70vw] max-w-[300px] md:max-w-[500px]"> */}
+            <Wheel participants={names} />
+          </div>
+        {/* </div> */}
         
         <div className="w-full">
           <Participants

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { MAX_PARTICIPANTS } from '../App';
-import { capitalize } from '../utils';
+import { capitalize } from '../utils/utils';
 import { CiShuffle } from "react-icons/ci";
 import { FaSortAlphaDown } from "react-icons/fa";
 
@@ -62,7 +62,7 @@ export const Participants: FC<ParticipantsProps> = ({
               handleAddParticipant();
             }
           }}
-          className="w-72 p-3 border border-blue-500 rounded focus:outline-none shadow-sm placeholder:text-gray-400"
+          className="p-3 w-48 md:w-72 border border-blue-500 rounded focus:outline-none shadow-sm placeholder:text-gray-400"
         />
         {error && <p className="text-red-500 text-sm">{error}</p>}
         {isMaxParticipantsReached && (

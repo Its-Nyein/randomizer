@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { capitalize } from './utils';
+import { capitalize } from '../utils/utils';
 
 const colors = [
   '#CC4629',
@@ -201,8 +201,6 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
   useEffect(() => {
     if (showPopup) {
       startConfetti();
-      const timer = setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
-      return () => clearTimeout(timer);
     }
   }, [showPopup]);
 
@@ -226,11 +224,11 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
   };
 
   return (
-    <div className="relative w-[400px] h-[400px] mx-auto">
+    <div className="relative w-[300px] h-[300px] mx-auto">
       <canvas
         ref={canvasRef}
-        width={400}
-        height={400}
+        width={300}
+        height={300}
         className="rounded-full border-2 border-[#01b4e4]"
       />
       <button
