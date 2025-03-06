@@ -1,32 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { capitalize } from '../utils/utils';
-
-const colors = [
-  '#CC4629',
-  '#CC9A29',
-  '#B2CC29',
-  '#5ECC29',
-  '#29CC46',
-  '#29CC99',
-  '#2985CC',
-  '#293FCC',
-  '#4629CC',
-  '#9929CC',
-  '#CC2981',
-  '#CC2929',
-  '#CC5929',
-  '#CC9529',
-  '#B2CC29',
-  '#66CC29',
-  '#29CC5F',
-  '#29CC91',
-  '#298ECC',
-  '#4A29CC',
-  '#8429CC',
-  '#CC298F',
-  '#CC294F',
-];
+import { capitalize, colors } from '../utils/utils';
 
 interface Props {
   participants: string[];
@@ -87,7 +61,7 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(radius * Math.cos(startAngle), radius * Math.sin(startAngle));
-      ctx.strokeStyle = '#ffffff'; // Change the color of the dividers
+      ctx.strokeStyle = '#01b4e4'; // Change the color of the dividers
       ctx.lineWidth = 2; // Adjust the thickness
       ctx.stroke();
 
@@ -199,10 +173,10 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
   };
 
   useEffect(() => {
-    if (showPopup) {
+    if (showPopup && popupWinner) {
       startConfetti();
     }
-  }, [showPopup]);
+  }, [showPopup, popupWinner]);
 
   const startConfetti = () => {
     const duration = 5000;

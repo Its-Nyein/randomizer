@@ -107,7 +107,7 @@ export const Participants: FC<ParticipantsProps> = ({
         {names.map((name, index) => (
           <li
             key={index}
-            className="flex justify-between items-center bg-gray-100 p-3 mb-2 rounded-lg shadow-sm"
+            className="flex justify-between items-center bg-gray-200 p-3 mb-2 rounded-lg shadow-md"
           >
             <span className="font-semibold text-gray-700">{capitalize(name)}</span>
             <button
