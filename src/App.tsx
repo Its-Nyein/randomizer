@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 export const MAX_PARTICIPANTS = 18;
 
 function App() {
-  const [names, setNames] = useState<string[]>([]);
+  const [names, setNames] = useState<string[]>(["Miracle", "Ceeb", "N0tail"]);
 
   const handleAddName = (name: string) => {
     if (names.length < MAX_PARTICIPANTS) {
