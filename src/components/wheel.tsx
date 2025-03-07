@@ -197,6 +197,11 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
     }, 300);
   };
 
+  const closePopup = () => {
+    setShowPopup(false)
+    setPopupWinner(null)
+  }
+
   return (
     <div className="relative w-[300px] h-[300px] mx-auto">
       <canvas
@@ -223,21 +228,21 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
       </div>
 
       {showPopup && popupWinner && (
-          <div className="absolute inset-0 backdrop:blur-sm flex justify-center items-center z-50">
-            <div className="bg-black/90 p-8 rounded-lg text-center relative">
-              <h2 className="text-xl font-bold text-green-500 mb-4">
-                Congratulations! <span className='text-2xl font-bold italic underline'>{capitalize(popupWinner)}</span> is the winner!
-              </h2>
+        <div className="fixed inset-0 backdrop-blur-sm flex justify-center items-center z-50">
+          <div className="bg-black/90 p-8 rounded-lg text-center relative">
+            <h2 className="text-xl font-bold text-green-500 mb-4">
+              Congratulations! <span className='text-2xl font-bold italic underline'>{capitalize(popupWinner)}</span> is the winner!
+            </h2>
 
-              <button
-                onClick={() => setPopupWinner(null)}
-                className="bg-blue-600 text-white px-6 py-3 rounded font-bold"
-              >
-                Close
-              </button>
-            </div>
+            <button
+              onClick={closePopup}
+              className="bg-blue-600 text-white px-6 py-3 rounded font-bold"
+            >
+              Close
+            </button>
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
