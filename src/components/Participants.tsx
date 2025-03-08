@@ -82,7 +82,7 @@ export const Participants: FC<ParticipantsProps> = ({
         <button
           onClick={shuffleNames}
           disabled={!hasParticipants}
-          className="relative flex gap-1 border border-[#01b4e4] mb-3 p-2 overflow-hidden group"
+          className="relative flex gap-1 border border-[#01b4e4] mb-3 p-2 overflow-hidden group cursor-pointer"
         >
           <div className="absolute inset-0 bg-[#01b4e4] -z-10 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out"></div>
           <CiShuffle className="group-hover:text-white" />
@@ -93,7 +93,7 @@ export const Participants: FC<ParticipantsProps> = ({
         <button
           onClick={sortNames}
           disabled={!hasParticipants}
-          className="relative flex gap-1 border border-[#01b4e4] mb-3 p-2 overflow-hidden group"
+          className="relative flex gap-1 border border-[#01b4e4] mb-3 p-2 overflow-hidden group cursor-pointer"
         >
           <div className="absolute inset-0 bg-[#01b4e4] -z-10 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out"></div>
           <FaSortAlphaDown className="group-hover:text-white" />

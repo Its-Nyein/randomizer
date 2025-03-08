@@ -221,9 +221,11 @@ export const Wheel: React.FC<Props> = ({ participants }) => {
         <button
           onClick={changeSpinDirection}
           disabled={participants.length === 0 || spinning}
-          className="px-6 py-3 bg-blue-500 text-white rounded-md disabled:bg-gray-400"
+          className="px-6 py-3 bg-blue-500 text-white rounded-md disabled:bg-gray-400
+          group relative flex transform items-center justify-center gap-2 overflow-hidden whitespace-nowrap text-base/7 font-medium transition-all duration-300 hover:ring-2 hover:ring-brand-700 hover:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-brand-700"
         >
           {capitalize(spinDirection)}
+          <div className="ease-[cubic-bezier(0.19,1,0.22,1)] absolute -left-[75px] -top-[50px] -z-10 h-[155px] w-8 rotate-[35deg] bg-white opacity-20 transition-all duration-700 group-hover:left-[120%]"/>
         </button>
       </div>
 
