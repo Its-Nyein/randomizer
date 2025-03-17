@@ -62,12 +62,8 @@ export const Participants: FC<ParticipantsProps> = ({
               handleAddParticipant();
             }
           }}
-          className="p-3 w-48 md:w-72 border border-blue-500 rounded focus:outline-none shadow-sm placeholder:text-gray-400"
+          className="p-3 w-48 md:w-72 border border-[#01b4e4] rounded focus:outline-none shadow-sm placeholder:text-gray-400"
         />
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        {isMaxParticipantsReached && (
-          <p className="text-red-500 text-sm">Max participants reached.</p>
-        )}
         <button
           disabled={isMaxParticipantsReached}
           onClick={handleAddParticipant}
@@ -76,6 +72,13 @@ export const Participants: FC<ParticipantsProps> = ({
           Add
         </button>
       </div>
+
+      <div className='flex justify-end'>
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {isMaxParticipantsReached && (
+          <p className="text-red-500 text-sm">Max participants reached.</p>
+        )}
+        </div>
 
       <h2 className="text-xl font-bold mb-4">Participants</h2>
       <div className="flex justify-end gap-4 mb-4">
